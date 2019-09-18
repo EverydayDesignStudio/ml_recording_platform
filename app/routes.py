@@ -7,6 +7,7 @@ from flask_login import login_required
 from app.models import User
 from werkzeug.urls import url_parse
 from datetime import datetime
+import os
 
 @app.route('/')
 @app.route('/index')
@@ -91,3 +92,17 @@ def edit_profile():
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
+
+@app.route('/music')
+@login_required
+def music():
+    music_folder = r'C:\Users\z1586\PycharmProjects\flask2\app\static\musics'
+    songs = os.listdir(music_folder)
+    return render_template('music.html', songs=songs)
+
+@app.route('/virtulizemusic')
+@login_required
+def virtulizemusic():
+    music_folder = r'C:\Users\z1586\PycharmProjects\flask2\app\static\musics'
+    music_list = os.listdir(music_folder)
+    return render_template('virtulizemusic.html', music_list=music_list)

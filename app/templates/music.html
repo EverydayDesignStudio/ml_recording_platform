@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-
-{% block body %}
+{% block content %}
     <h2>Music</h2>
+    <div id="list" style="background-color:#FFD700;width:300px;float:left;">
     <p>Music:</p>
     <audio controls="controls" autoplay="autoplay"></audio>
     <ul>
@@ -14,20 +14,54 @@
             Results:
             <pre>
                 {% for message in messages %}
-{{ message }}
+                    {{ message }}
                 {% endfor %}
             </pre>
         {% endif %}
     {% endwith %}
+<!--
     <script type='text/javascript'>
-        {% for song in songs %}
+        {% for song in songs %} 
             $('li').click(function(){
                 var str = $(this).text()
-                $('audio').attr('src', '/static/music/'+str);
+                $('audio').attr('src', '../static/musics/'+str);
+                //alert(str)
+                //$('audio_tree').attr('alt',str);
+                //$('#photo').img.src('../static/photos/' + str)
+                //how to change the source for an image tag inside an id div
+                //jquery"
             });
         {% endfor %}
     </script>
+    -->
+    <p><a href="{{ url_for('virtulizemusic') }}">Virtulize the music</a></p>
+    </div>
+    <script type='text/javascript'>
+        {% for song in songs %}
+            $('li').click(function(){photo
+                var str = $(this).text()
+                $('audio').attr('src', '../static/musics/'+str);
+                $('#audio_tree').attr('src','../static/images/audio_tree/'+str+'.png')
+                //alert(str)
+                //$('audio_tree').attr('alt',str);
+                //$('#photo').img.src('../static/photos/' + str)
+                //how to change the source for an image tag inside an id div
+                //jquery"
+            });
+        {% endfor %}
+    </script>
+    <div style="background-color:#EEEEEE;width:500px;float:left;">
+        <img id="audio_tree" width="500">
+    </div>
+    <div style="background-color:#EEEEEE;width:500px;float:left;">
+    <img id="photo" src='../static/images/photo/P90629-135743.jpg' alt="some_text" width="500" >
+    </div>
+    <div style="float:right;">
+    <img id="image_result" src='../static/images/image_result/imagetest.PNG' alt="some_text" width="1200">
+    </div>
+<!--
 {% endblock %}
 {% block nav %}
 <li><a href="{{url_for('index')}}">back</a></li>
+-->
 {% endblock %}

@@ -5,6 +5,7 @@
         {% else %}
         <title>microblog</title>
         {% endif %}
+        <script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
     </head>
     <body>
         <div>
@@ -15,6 +16,7 @@
             {% else %}
             <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
             <a href="{{ url_for('logout') }}">Logout</a>
+            <a href="{{ url_for('music')}}">Music</a>
             {% endif %}
         </div>
         <hr>
