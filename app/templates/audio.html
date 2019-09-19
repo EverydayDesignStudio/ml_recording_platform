@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>Music</h2>
+    <h2>Aduio</h2>
     <div id="list" style="background-color:#FFD700;width:300px;float:left;">
-    <p>Music:</p>
+    <p>Audio:</p>
     <audio controls="controls" autoplay="autoplay"></audio>
     <ul>
-    {% for song in songs %}
-        <li><a href="javascript:void(0);">{{song}}</a></li>
+    {% for audio in audio_list %}
+        <li><a href="javascript:void(0);">{{audio}}</a></li>
     {% endfor %}
     </ul>
     {% with messages = get_flashed_messages() %}
@@ -34,10 +34,10 @@
         {% endfor %}
     </script>
     -->
-    <p><a href="{{ url_for('virtulizemusic') }}">Virtulize the music</a></p>
+    <p><a href="{{ url_for('virtulizeaudio') }}">Virtulize the audio</a></p>
     </div>
     <script type='text/javascript'>
-        {% for song in songs %}
+        {% for audio in audio_list %}
             $('li').click(function(){photo
                 var str = $(this).text()
                 $('audio').attr('src', '../static/musics/'+str);

@@ -1,22 +1,23 @@
 <html>
     <head>
         {% if title %}
-        <title>{{ title }} - microblog</title>
+        <title>{{ title }} - Design with AI </title>
         {% else %}
-        <title>microblog</title>
+        <title>Design with AI</title>
         {% endif %}
         <script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
     </head>
     <body>
         <div>
-            Microblog:
+            Design with AI:
             <a href="{{ url_for('index') }}">Home</a>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
             {% else %}
             <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+            <a href="{{ url_for('audio')}}">Audio</a>
+            <a href="{{ url_for('photo')}}">Photo</a>
             <a href="{{ url_for('logout') }}">Logout</a>
-            <a href="{{ url_for('music')}}">Music</a>
             {% endif %}
         </div>
         <hr>

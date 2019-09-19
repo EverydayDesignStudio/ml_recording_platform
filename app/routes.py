@@ -15,12 +15,12 @@ import os
 def index():
     posts = [
         {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
+            'author': {'username': 'Ini'},
+            'body': 'a music by street artiest'
         },
         {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
+            'author': {'username': 'Will'},
+            'body': 'speech on 2019.8.18'
         }
     ]
     return render_template('index.html', title='Home Page', posts=posts)
@@ -93,16 +93,22 @@ def edit_profile():
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
 
-@app.route('/music')
+@app.route('/audio')
 @login_required
-def music():
-    music_folder = r'C:\Users\z1586\PycharmProjects\flask2\app\static\musics'
-    songs = os.listdir(music_folder)
-    return render_template('music.html', songs=songs)
+def audio():
+    audio_folder = r'C:\Users\z1586\PycharmProjects\flask2\app\static\musics'
+    audio_list = os.listdir(audio_folder)
+    return render_template('audio.html', audio_list=audio_list)
 
-@app.route('/virtulizemusic')
+@app.route('/photo')
 @login_required
-def virtulizemusic():
-    music_folder = r'C:\Users\z1586\PycharmProjects\flask2\app\static\musics'
-    music_list = os.listdir(music_folder)
-    return render_template('virtulizemusic.html', music_list=music_list)
+def photo():
+#TO DO
+    return render_template('photo.html')
+
+@app.route('/virtulizeaudio')
+@login_required
+def virtulizeaudio():
+    audio_folder = r'C:\Users\z1586\PycharmProjects\flask2\app\static\musics'
+    audio_list = os.listdir(audio_folder)
+    return render_template('virtulizeaudio.html', audio_list=audio_list)
